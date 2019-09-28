@@ -1,7 +1,7 @@
-#include <stdio.h>
 #include "headers\selectionSort.h"
 
 void selectionSort(int array[], int size){
+    
     int i,j;
 
     for( j = 0; j < size - 1; j++ ){

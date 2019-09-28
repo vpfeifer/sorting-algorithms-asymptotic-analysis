@@ -1,24 +1,22 @@
 #include <stdio.h>
-#include <time.h>
-#include "sort\headers\insertionSort.h"
-#include "sort\headers\selectionSort.h"
+#include "sort\headers\sort.h"
 #include "utils\headers\arrayGen.h"
+#include "utils\headers\arrayPrinter.h"
 
-void sort(char * sortMethodName, int array[], int size);
-void executeSortOnRandomArray(char * sortMethodName, int size);
+void executeSortOnRandomArray(sortType type, int size);
 void bestCase(int size);
-void mediumCase(int size);
+void randomCase(int size);
 void worstCase(int size);
 
 int main () {
 
-    int size = 5;
+    int size = 10;
 
-    bestCase(size);
+    // bestCase(size);
 
-    mediumCase(size);
+    randomCase(size);
 
-    worstCase(size);
+    // worstCase(size);
 
     return 0;
 }
@@ -27,42 +25,30 @@ void bestCase(int size){
     
 }
 
-void mediumCase(int size){
-    executeSortOnRandomArray("INSERTION SORT", size);
-    executeSortOnRandomArray("SELECTION SORT", size);
+void randomCase(int size){
+    executeSortOnRandomArray(INSERTION_SORT, size);
+    executeSortOnRandomArray(SELECTION_SORT, size);
+    executeSortOnRandomArray(MERGE_SORT, size);
 }
 
 void worstCase(int size){
     
 }
 
-void executeSortOnRandomArray(char * sortMethodName, int size){
+void executeSortOnRandomArray(sortType type, int size){
     int array[size];
 
     generateRandomArray(array, size);
 
-    sort(sortMethodName, array, size);
+    printf("Given array :\n\n");
+    print(array, size);
+
+    float timeInSeconds = sort(type, array, size);
+
+    printf("\nSorted array :\n\n");
+    print(array, size);
+
+    printf("Array was sorted in %f seconds.\n", timeInSeconds);
 
     printf("\n");
-}
-
-void sort(char * sortMethodName, int array[], int size){
-    
-    clock_t start = clock();
-
-    printf("%s\n\n", sortMethodName);
-    printf("Unordered input array :\n\n");
-    print(array, size);
-    
-    if(strcmp(sortMethodName, "INSERTION SORT") == 0)
-        insertionSort(array, size);
-    else 
-        selectionSort(array, size);
-    
-    printf("\nOrdered output array :\n\n");
-    print(array, size);
-
-    clock_t end = clock();
-    float seconds = (float)(end - start) / CLOCKS_PER_SEC;
-    printf("Array was sorted in %f seconds.\n", seconds);
 }

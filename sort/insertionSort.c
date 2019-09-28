@@ -1,7 +1,7 @@
-#include <stdio.h>
 #include "headers\insertionSort.h"
 
 void insertionSort(int array[], int size){
+
     int i,j;
 
     for( j = 1; j < size; j++ ){
