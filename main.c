@@ -10,7 +10,7 @@ void worstCase(int size);
 
 int main () {
 
-    int size = 10;
+    int size = 100;
 
     // bestCase(size);
 
@@ -26,9 +26,10 @@ void bestCase(int size){
 }
 
 void randomCase(int size){
-    executeSortOnRandomArray(INSERTION_SORT, size);
-    executeSortOnRandomArray(SELECTION_SORT, size);
-    executeSortOnRandomArray(MERGE_SORT, size);
+
+    int i;
+    for (i = INSERTION_SORT; i < HEAP_SORT; i++)
+        executeSortOnRandomArray(i, size);
 }
 
 void worstCase(int size){

@@ -20,6 +20,9 @@ float sort(sortType type, int array[], int size){
         case MERGE_SORT:
             mergeSort(array, 0, size - 1);
             break;
+        case HEAP_SORT:
+            heapSort(array, size);
+            break;
         default:
             printf("Sort type not found!");
             break;
