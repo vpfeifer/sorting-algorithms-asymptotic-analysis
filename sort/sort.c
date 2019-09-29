@@ -4,6 +4,7 @@
 #include "headers\insertionSort.h"
 #include "headers\selectionSort.h"
 #include "headers\mergeSort.h"
+#include "headers\quickSort.h"
 
 float sort(sortType type, int array[], int size){
 
@@ -22,6 +23,9 @@ float sort(sortType type, int array[], int size){
             break;
         case HEAP_SORT:
             heapSort(array, size);
+            break;
+        case QUICK_SORT:
+            quickSort(array, 0, size - 1);
             break;
         default:
             printf("Sort type not found!");

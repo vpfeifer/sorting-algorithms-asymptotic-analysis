@@ -1,8 +1,7 @@
 #include "headers\heapSort.h"
-#include "..\utils\headers\arrayPrinter.h"
+#include "..\utils\headers\arraySwapper.h"
 
 void buildMaxHeap(int array[], int size);
-void swap(int array[], int fromIndex, int toIndex);
 void maxHeapify(int array[], int size, int i);
 
 void heapSort(int array[], int size){
@@ -29,12 +28,6 @@ void buildMaxHeap(int array[], int size)
     {
         maxHeapify(array, size, i);
     }
-}
-
-void swap(int array[], int fromIndex, int toIndex){
-    int aux = array[fromIndex];
-    array[fromIndex] = array[toIndex];
-    array[toIndex] = aux;
 }
 
 void maxHeapify(int array[], int size, int i){

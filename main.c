@@ -10,12 +10,10 @@ void worstCase(int size);
 
 int main () {
 
-    int size = 100;
+    int size = 10;
 
     // bestCase(size);
-
     randomCase(size);
-
     // worstCase(size);
 
     return 0;
@@ -26,9 +24,8 @@ void bestCase(int size){
 }
 
 void randomCase(int size){
-
     int i;
-    for (i = INSERTION_SORT; i < HEAP_SORT; i++)
+    for (i = INSERTION_SORT; i <= QUICK_SORT; i++)
         executeSortOnRandomArray(i, size);
 }
 
@@ -41,15 +38,7 @@ void executeSortOnRandomArray(sortType type, int size){
 
     generateRandomArray(array, size);
 
-    printf("Given array :\n\n");
-    print(array, size);
-
     float timeInSeconds = sort(type, array, size);
 
-    printf("\nSorted array :\n\n");
-    print(array, size);
-
-    printf("Array was sorted in %f seconds.\n", timeInSeconds);
-
-    printf("\n");
+    printf("Sort type %d - %f seconds.\n",type, timeInSeconds);
 }
