@@ -36,3 +36,21 @@ float sort(sortType type, int array[], int size){
 
    return (float)(end - start) / CLOCKS_PER_SEC;
 }
+
+char * getName(sortType type){
+    switch (type)
+    {
+        case INSERTION_SORT:
+            return "InsertionSort";
+        case SELECTION_SORT:
+            return "SelectionSort";
+        case MERGE_SORT:
+            return "MergeSort";
+        case HEAP_SORT:
+            return "HeapSort";
+        case QUICK_SORT:
+            return "QuickSort";
+        default:
+            return "";
+    }
+}

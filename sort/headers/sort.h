@@ -8,3 +8,4 @@ typedef enum
 } sortType;
 
 float sort(sortType type, int array[], int size);
+char * getName(sortType type);
